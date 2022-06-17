@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { Button, message } from 'antd';
 import { Link } from 'react-router-dom';
-import Main from '../main';
 
 const Hooks = () => {
   /**사용자 정보 */
