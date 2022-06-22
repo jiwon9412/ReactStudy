@@ -6,6 +6,7 @@ import Login from './components/pages/login';
 import Join from './components/pages/join';
 import TableTest from './components/pages/table';
 import Hooks from './components/pages/hooks';
+import Board from './components/pages/board';
 
 import Header from './components/templates/Header';
 import Footer from './components/templates/Footer';
@@ -29,6 +30,7 @@ function App() {
                   <Route path="/join" element={<Join />} />
                   <Route path="/table" element={<TableTest />} />
                   <Route path="/hooks" element={<Hooks />} />
+                  <Route path="/board" element={<Board />} />
                 </Routes>
               </Col>
             </Row>
