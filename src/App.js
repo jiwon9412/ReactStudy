@@ -7,6 +7,7 @@ import Join from './components/pages/join';
 import TableTest from './components/pages/table';
 import Hooks from './components/pages/hooks';
 import Board from './components/pages/board';
+import BoardDetail from './components/pages/board/Detail';
 
 import Header from './components/templates/Header';
 import Footer from './components/templates/Footer';
@@ -31,6 +32,7 @@ function App() {
                   <Route path="/table" element={<TableTest />} />
                   <Route path="/hooks" element={<Hooks />} />
                   <Route path="/board" element={<Board />} />
+                  <Route path="/board/detail/:id" element={<BoardDetail />} />
                 </Routes>
               </Col>
             </Row>
