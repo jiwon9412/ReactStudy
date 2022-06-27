@@ -8,6 +8,7 @@ import TableTest from './components/pages/table';
 import Hooks from './components/pages/hooks';
 import Board from './components/pages/board';
 import BoardDetail from './components/pages/board/Detail';
+import BoardUpdate from './components/pages/board/Update';
 
 import Header from './components/templates/Header';
 import Footer from './components/templates/Footer';
@@ -33,6 +34,7 @@ function App() {
                   <Route path="/hooks" element={<Hooks />} />
                   <Route path="/board" element={<Board />} />
                   <Route path="/board/detail/:id" element={<BoardDetail />} />
+                  <Route path="/board/update/:id" element={<BoardUpdate />} />
                 </Routes>
               </Col>
             </Row>
