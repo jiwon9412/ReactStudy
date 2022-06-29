@@ -4,41 +4,25 @@ import { defaultQuery } from '../../../config/utils/network';
 import { Row, Col, Button, Modal, Form, Input } from 'antd';
 import FroalaEditor from 'react-froala-wysiwyg';
 /**
- * 게시판 상세 페이지
+ * 게시판 등록
  * @returns
  */
-const BoardUpdate = () => {
+const BoardInsert = () => {
   const [form] = Form.useForm();
   let nevigate = useNavigate();
-  const {
-    params: { id },
-  } = useMatch('/board/update/:id'); // useMatch의 params의 id값 가져오기
 
   const [params] = useState({
     siteId: 'SITE_000000000000001',
     bbsId: 'BBSMSTR_000000000091',
-    nttId: id,
   });
 
   const [model, setModel] = useState();
 
-  /**상세정보 */
-  const [detail, setDetail] = useState();
-
-  /**게시판 상세정보 */
-  const boardDetail = async () => {
-    const { data } = await defaultQuery('/api/article/find', params);
-    if (data) {
-      const { result } = data;
-      setDetail(result);
-    }
-  };
-
   /**
-   * 게시판 수정 api 실행
+   * 게시판 입력 api 실행
    * @param {} payload
    */
-  const boardUpdate = async (payload) => {
+  const boardInsert = async (payload) => {
     try {
       const { data } = await defaultQuery('/api/article/save', payload);
       //console.log('response ==>', response);
@@ -48,7 +32,7 @@ const BoardUpdate = () => {
         if (result == 1) {
           //성공
           Modal.success({
-            content: '수정이 완료되었습니다.',
+            content: '게시물이 등록 되었습니다.',
             okText: '확인',
             onOk: () => {
               nevigate('/board');
@@ -111,28 +95,9 @@ const BoardUpdate = () => {
       nttSj,
       nttCn: model,
     };
-    boardUpdate(payload);
+    boardInsert(payload);
   };
 
-  useEffect(() => {
-    //api호출
-    boardDetail();
-  }, []);
-
-  /**
-   * detail 값의 변경이 있고 값이 존재한다면 실행
-   * form item 값을 주입
-   */
-  useEffect(() => {
-    //처음에 undefine이니까 그건 예외처리
-    if (detail) {
-      form.setFieldsValue({
-        nttSj: detail.nttSj,
-        //nttCn: detail.nttCn,
-      });
-      setModel(detail.nttCn);
-    }
-  }, [detail]); //detail state가 변경이 있으면 실행
   return (
     <div>
       <Form form={form} onFinish={handleFinish}>
@@ -175,4 +140,4 @@ const BoardUpdate = () => {
 
 const { confirm } = Modal;
 
-export default BoardUpdate;
+export default BoardInsert;

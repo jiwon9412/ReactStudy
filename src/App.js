@@ -9,6 +9,7 @@ import Hooks from './components/pages/hooks';
 import Board from './components/pages/board';
 import BoardDetail from './components/pages/board/Detail';
 import BoardUpdate from './components/pages/board/Update';
+import BoardInsert from './components/pages/board/Insert';
 
 import Header from './components/templates/Header';
 import Footer from './components/templates/Footer';
@@ -35,6 +36,7 @@ function App() {
                   <Route path="/board" element={<Board />} />
                   <Route path="/board/detail/:id" element={<BoardDetail />} />
                   <Route path="/board/update/:id" element={<BoardUpdate />} />
+                  <Route path="/board/insert" element={<BoardInsert />} />
                 </Routes>
               </Col>
             </Row>

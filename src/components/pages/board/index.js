@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Table, Pagination } from 'antd';
+import { Row, Col, Table, Pagination, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import Search from '../../molcules/Search';
@@ -108,6 +108,15 @@ const Board = () => {
               boardList(payload);
             }}
           />
+        </Col>
+        <Col span={24} style={{ textAlign: 'right' }}>
+          <Button
+            onClick={() => {
+              navigate('/board/insert');
+            }}
+          >
+            글쓰기
+          </Button>
         </Col>
       </Row>
     </div>
