@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Row, Col } from 'antd';
+import { Row, Col, Spin } from 'antd';
+import { useSelector } from 'react-redux';
 
 import Main from './components/pages/main';
 import Login from './components/pages/login';
@@ -15,38 +16,42 @@ import Header from './components/templates/Header';
 import Footer from './components/templates/Footer';
 
 function App() {
+  const { isLoading } = useSelector((state) => state.common);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Row>
-          <Col span={24}>
-            <Row>
-              <Col span={24}>
-                <Header />
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <Routes>
-                  <Route path="/main" element={<Main />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/join" element={<Join />} />
-                  <Route path="/table" element={<TableTest />} />
-                  <Route path="/hooks" element={<Hooks />} />
-                  <Route path="/board" element={<Board />} />
-                  <Route path="/board/detail/:id" element={<BoardDetail />} />
-                  <Route path="/board/update/:id" element={<BoardUpdate />} />
-                  <Route path="/board/insert" element={<BoardInsert />} />
-                </Routes>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <Footer />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <Spin spinning={isLoading}>
+          <Row>
+            <Col span={24}>
+              <Row>
+                <Col span={24}>
+                  <Header />
+                </Col>
+              </Row>
+              <Row>
+                <Col span={24}>
+                  <Routes>
+                    <Route path="/main" element={<Main />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/join" element={<Join />} />
+                    <Route path="/table" element={<TableTest />} />
+                    <Route path="/hooks" element={<Hooks />} />
+                    <Route path="/board" element={<Board />} />
+                    <Route path="/board/detail/:id" element={<BoardDetail />} />
+                    <Route path="/board/update/:id" element={<BoardUpdate />} />
+                    <Route path="/board/insert" element={<BoardInsert />} />
+                  </Routes>
+                </Col>
+              </Row>
+              <Row>
+                <Col span={24}>
+                  <Footer />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Spin>
       </BrowserRouter>
     </div>
   );

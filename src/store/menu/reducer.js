@@ -10,7 +10,9 @@ const slice = createSlice({
   name: 'menu',
   initialState: initialState,
   reducers: {
-    setMenuList: (state, actions) => (state.menuList = actions.payload),
+    setMenuList: (state, actions) => {
+      state.menuList = actions.payload;
+    },
   },
 });
 

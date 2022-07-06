@@ -10,7 +10,9 @@ const slice = createSlice({
   name: 'common',
   initialState: initialState,
   reducers: {
-    setIsLoading: (state, actions) => (state.isLoading = actions.payload),
+    setIsLoading: (state, actions) => {
+      state.isLoading = actions.payload;
+    },
   },
 });
 
