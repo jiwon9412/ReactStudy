@@ -1,0 +1,197 @@
+[
+  {
+    "siteMapArea": [
+      {
+        "areaName": "For designers",
+        "children": [
+          {
+            "name": "Go Pro!",
+            "link": "/"
+          },
+          {
+            "name": "Explore design work",
+            "link": "/"
+          },
+          {
+            "name": "Design blog",
+            "link": "/"
+          },
+          {
+            "name": "Overtime podcast",
+            "link": "/"
+          },
+          {
+            "name": "Dribbble meetups",
+            "link": "/"
+          },
+          {
+            "name": "Playoffs",
+            "link": "/"
+          },
+          {
+            "name": "Weekly Warm-Up",
+            "link": "/"
+          },
+          {
+            "name": "Code of conduct",
+            "link": "/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "siteMapArea": [
+      {
+        "areaName": "For designers",
+        "children": [
+          {
+            "name": "Post a job opening",
+            "link": "/"
+          },
+          {
+            "name": "Post a freelance project",
+            "link": "/"
+          },
+          {
+            "name": "Search for designers",
+            "link": "/"
+          }
+        ]
+      },
+      {
+        "areaName": "Brands",
+        "children": [
+          {
+            "name": "Advertise with us",
+            "link": "/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "siteMapArea": [
+      {
+        "areaName": "Company",
+        "children": [
+          {
+            "name": "About",
+            "link": "/"
+          },
+          {
+            "name": "Careers",
+            "link": "/"
+          },
+          {
+            "name": "Support",
+            "link": "/"
+          },
+          {
+            "name": "Media kit",
+            "link": "/"
+          },
+          {
+            "name": "Testimonials",
+            "link": "/"
+          },
+          {
+            "name": "API",
+            "link": "/"
+          },
+          {
+            "name": "Terms of service",
+            "link": "/"
+          },
+          {
+            "name": "Privacy policy",
+            "link": "/"
+          },
+          {
+            "name": "Cookie policy",
+            "link": "/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "siteMapArea": [
+      {
+        "areaName": "Directories",
+        "children": [
+          {
+            "name": "Design jobs",
+            "link": "/"
+          },
+          {
+            "name": "Designers for hire",
+            "link": "/"
+          },
+          {
+            "name": "Freelance designers for hire",
+            "link": "/"
+          },
+          {
+            "name": "Tags",
+            "link": "/"
+          },
+          {
+            "name": "Places",
+            "link": "/"
+          }
+        ]
+      },
+      {
+        "areaName": "Design assets",
+        "children": [
+          {
+            "name": "Creative Market",
+            "link": "/"
+          },
+          {
+            "name": "Fontspring",
+            "link": "/"
+          },
+          {
+            "name": "Font Squirrel",
+            "link": "/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "siteMapArea": [
+      {
+        "areaName": "Design Resources",
+        "children": [
+          {
+            "name": "Freelancing",
+            "link": "/"
+          },
+          {
+            "name": "Design Hiring",
+            "link": "/"
+          },
+          {
+            "name": "Design Portfolio",
+            "link": "/"
+          },
+          {
+            "name": "Design Education",
+            "link": "/"
+          },
+          {
+            "name": "Creative Process",
+            "link": "/"
+          },
+          {
+            "name": "Design Industry Trends",
+            "link": "/"
+          }
+        ]
+      }
+    ]
+  }
+]

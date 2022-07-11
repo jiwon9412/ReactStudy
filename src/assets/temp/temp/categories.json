@@ -1,0 +1,52 @@
+[
+  {
+    "categoryName": "Animation",
+    "categoryCode": "animation",
+    "categorySeq": "1"
+  },
+  {
+    "categoryName": "Branding",
+    "categoryCode": "branding",
+    "categorySeq": "2"
+  },
+  {
+    "categoryName": "Illustration",
+    "categoryCode": "illustration",
+    "categorySeq": "3"
+  },
+  {
+    "categoryName": "Mobile",
+    "categoryCode": "mobile",
+    "categorySeq": "4"
+  },
+  {
+    "categoryName": "Print",
+    "categoryCode": "print",
+    "categorySeq": "5"
+  },
+  {
+    "categoryName": "Product",
+    "categoryCode": "product",
+    "categorySeq": "6"
+  },
+  {
+    "categoryName": "Design",
+    "categoryCode": "design",
+    "categorySeq": "7"
+  },
+  {
+    "categoryName": "Typography",
+    "categoryCode": "typography",
+    "categorySeq": "8"
+  },
+  {
+    "categoryName": "Web",
+    "categoryCode": "web",
+    "categorySeq": "9"
+  },
+  {
+    "categoryName": "Design",
+    "categoryCode": "design",
+    "categorySeq": "10"
+  }
+]
