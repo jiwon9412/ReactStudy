@@ -1,23 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Row, Col, Spin, Layout } from 'antd';
-import { useSelector } from 'react-redux';
+import { Row, Col, Layout, Typography } from 'antd';
 import styled from 'styled-components';
 import { SearchOutlined } from '@ant-design/icons';
-import Logo from './assets/temp/temp/logo.svg';
-import menuList from './assets/temp/temp/menu.json';
+import Logo from './assets/temp/logo.svg';
+import menuList from './assets/temp/menu.json';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Layout>
+      <DribbleLayout>
         <DribbbleHeader>
           <Row>
             <Col>
               <Row>
                 <Col>
                   <a href="/#">
-                    <img width={92} src={Logo} />
+                    <img width={76} src={Logo} alt="logo" />
                   </a>
                 </Col>
                 <Col>
@@ -35,7 +34,7 @@ export default function App() {
                 </Col>
               </Row>
             </Col>
-            <Col style={{ marginLeft: 'auto' }}>
+            <Col style={{ marginLeft: `auto` }}>
               <ul>
                 <Action right={10}>
                   <a href="/#">
@@ -45,12 +44,12 @@ export default function App() {
                   </a>
                 </Action>
                 <Action left={10} right={10}>
-                  <a href="/#" className="signIn">
+                  <a className="signIn" href="/#">
                     Sign in
                   </a>
                 </Action>
                 <Action left={10}>
-                  <a href="/#" className="btnAction">
+                  <a className="btnAction" href="/#">
                     Share my work
                   </a>
                 </Action>
@@ -58,14 +57,54 @@ export default function App() {
             </Col>
           </Row>
         </DribbbleHeader>
-        <Content>컨텐츠</Content>
+        <DribbbleContent>
+          <Row className="top" justify="space-between">
+            <Col className="text-contents">
+              <h1>Explore the world’s leading design portfolios</h1>
+              <h2>
+                Millions of designers and agencies around the world showcase
+                their portfolio work on Dribbble - the home to the world’s best
+                design and creative professionals.
+              </h2>
+              <a className="btnAction" href="/#">
+                Sign up
+              </a>
+            </Col>
+            <Col className="shot-contents">
+              {/* <img
+                alt="topImage"
+                width={335}
+                height={300}
+                src="https://cdn.dribbble.com/assets/art-banners/romainbriaux-510w-4f2dbdb739cfcc67d5adede6bcc1095f41ad559af391f762194d1c35c318303a.png"
+              /> */}
+              <picture className="container-picture">
+                <img
+                  width={335}
+                  height={300}
+                  alt="Dribbble is the leading destination to find &amp; showcase creative work and home to the world's best design professionals."
+                  className="signed-out-masthead-image "
+                  src="https://cdn.dribbble.com/assets/art-banners/romainbriaux-510w-4f2dbdb739cfcc67d5adede6bcc1095f41ad559af391f762194d1c35c318303a.png"
+                />
+              </picture>
+              <span className="user-credit">
+                Art by <a href="/#">Romain Briaux</a>
+              </span>
+            </Col>
+          </Row>
+        </DribbbleContent>
         <Footer>푸터</Footer>
-      </Layout>
+      </DribbleLayout>
     </BrowserRouter>
   );
 }
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
+
+const DribbleLayout = styled(Layout)`
+  font-family: 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+`;
 
 const DribbbleHeader = styled(Header)`
   background: #fff;
@@ -102,9 +141,73 @@ const Menu = styled.li`
   }
 `;
 
-//동적 컴포넌트!!!!!!!!!!!
 const Action = styled.li`
   display: inline;
   margin-left: ${(props) => props.left || 0}px;
   margin-right: ${(props) => props.right || 0}px;
+`;
+
+const DribbbleContent = styled(Content)`
+  background: #f9f8fd;
+  .top {
+    min-width: 768px;
+    padding-right: 80px;
+    padding-left: 80px;
+    height: 480px;
+    .text-contents {
+      max-width: 624px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 0;
+      text-align: left;
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56px;
+      }
+    }
+    .shot-contents {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-end;
+      width: auto;
+      .container-picture {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+
+        .signed-out-masthead-image {
+          @media (min-width: 768px) {
+            width: 400px;
+            height: 266px;
+          }
+
+          @media (min-width: 1200px) {
+            width: 510px;
+            height: 360px;
+          }
+        }
+      }
+      .user-credit {
+        margin-top: 50px;
+        color: #9e9ea7;
+        a {
+          color: #9e9ea7;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .btnAction {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #ea4c89;
+    color: #fff;
+    font-weight: 500;
+  }
 `;
