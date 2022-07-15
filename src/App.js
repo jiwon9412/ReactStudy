@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Row, Col, Layout, Typography } from 'antd';
 import styled from 'styled-components';
 import { SearchOutlined } from '@ant-design/icons';
 import Logo from './assets/temp/logo.svg';
 import menuList from './assets/temp/menu.json';
+import Dropdown from './components/atoms/Dropdown';
 
 export default function App() {
+  const [leftValue, setLeftValue] = useState('marketplace');
+
+  const handleFinish = (value) => {
+    setLeftValue(value);
+    // console.log(value);
+  };
   return (
     <BrowserRouter>
       <DribbleLayout>
@@ -90,6 +97,22 @@ export default function App() {
                 Art by <a href="/#">Romain Briaux</a>
               </span>
             </Col>
+          </Row>
+          <Row className="middle">
+            <Col span={24}>
+              <Row className="filter-content">
+                <Col flex="200px" style={{ paddingTop: 20 }}>
+                  <Dropdown
+                    options={tempList}
+                    onFinish={handleFinish}
+                    defaultValue={leftValue}
+                  />
+                </Col>
+                <Col flex="auto">가운데</Col>
+                <Col flex="200px">{/* <Dropdown /> */}</Col>
+              </Row>
+            </Col>
+            <Col span={24}></Col>
           </Row>
         </DribbbleContent>
         <Footer>푸터</Footer>
@@ -210,4 +233,34 @@ const DribbbleContent = styled(Content)`
     color: #fff;
     font-weight: 500;
   }
+
+  .middle {
+    background: #fff;
+
+    @media (min-width: 768px) {
+      padding: 0 36px;
+    }
+    @media (min-width: 1200px) {
+      padding: 0 72px;
+    }
+
+    .filter-content {
+      min-height: 72px;
+    }
+  }
 `;
+
+const tempList = [
+  {
+    label: 'Popular',
+    value: 'popular',
+  },
+  {
+    label: 'New & Noteworthy',
+    value: 'NewAndNoteworthy',
+  },
+  {
+    label: 'Marketplace',
+    value: 'marketplace',
+  },
+];
