@@ -12,8 +12,8 @@ export default function App() {
 
   const handleFinish = (value) => {
     setLeftValue(value);
-    // console.log(value);
   };
+
   return (
     <BrowserRouter>
       <DribbleLayout>
@@ -101,25 +101,74 @@ export default function App() {
           <Row className="middle">
             <Col span={24}>
               <Row className="filter-content">
-                <Col flex="200px" style={{ paddingTop: 20 }}>
+                <Col flex="200px" style={{ paddingTop: 20, height: 300 }}>
                   <Dropdown
                     options={tempList}
                     onFinish={handleFinish}
                     defaultValue={leftValue}
                   />
                 </Col>
-                <Col flex="auto">가운데</Col>
-                <Col flex="200px">{/* <Dropdown /> */}</Col>
+                <Col flex="auto" style={{ paddingTop: 20 }}>
+                  {/* <Dropdown options={tempList1} onFinish={handleFinish} /> */}
+                </Col>
+                <Col flex="200px">오른쪽</Col>
               </Row>
             </Col>
-            <Col span={24}></Col>
+            {/* <Col span={24}>카드영역</Col> */}
           </Row>
+          {/* <Row className="middle">
+            <Col span={24} className="filter-content">
+              <Row className="filter-row">
+                <Col flex="120px">
+                  <Dropdown options={tempList} />
+                </Col>
+                <Col flex="auto">
+                  <Dropdown options={tempList1} />
+                </Col>
+                <Col flex="120px">오른쪽</Col>
+              </Row>
+            </Col>
+            <Col span={24}>카드영역</Col>
+          </Row> */}
         </DribbbleContent>
         <Footer>푸터</Footer>
       </DribbleLayout>
     </BrowserRouter>
   );
 }
+
+const tempList = [
+  {
+    label: 'Popular',
+    value: 'popular',
+    group: 'A',
+  },
+  {
+    label: 'New & Noteworthy',
+    value: 'NewAndNoteworthy',
+    group: 'A',
+  },
+  {
+    label: 'Marketplace',
+    value: 'marketplace',
+    group: 'B',
+  },
+];
+
+const tempList1 = [
+  {
+    label: 'aa',
+    value: 'aa',
+  },
+  {
+    label: 'bb',
+    value: 'bb',
+  },
+  {
+    label: 'cc',
+    value: 'cc',
+  },
+];
 
 const { Header, Footer, Content } = Layout;
 
@@ -172,8 +221,10 @@ const Action = styled.li`
 
 const DribbbleContent = styled(Content)`
   background: #f9f8fd;
+  // margin: 0 auto;
   .top {
     min-width: 768px;
+    // max-width: 1300px;
     padding-right: 80px;
     padding-left: 80px;
     height: 480px;
@@ -226,19 +277,10 @@ const DribbbleContent = styled(Content)`
     }
   }
 
-  .btnAction {
-    padding: 10px 16px;
-    border-radius: 8px;
-    background: #ea4c89;
-    color: #fff;
-    font-weight: 500;
-  }
-
   .middle {
     background: #fff;
-
     @media (min-width: 768px) {
-      padding: 0 36px;
+      padding: 0 32px;
     }
     @media (min-width: 1200px) {
       padding: 0 72px;
@@ -248,19 +290,22 @@ const DribbbleContent = styled(Content)`
       min-height: 72px;
     }
   }
-`;
 
-const tempList = [
-  {
-    label: 'Popular',
-    value: 'popular',
-  },
-  {
-    label: 'New & Noteworthy',
-    value: 'NewAndNoteworthy',
-  },
-  {
-    label: 'Marketplace',
-    value: 'marketplace',
-  },
-];
+  // .middle {
+  //   background: #fff;
+  //   .filter-content {
+  //     min-height: 72px;
+  //     .filter-row {
+  //       height: 100%;
+  //     }
+  //   }
+  // }
+
+  .btnAction {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #ea4c89;
+    color: #fff;
+    font-weight: 500;
+  }
+`;
