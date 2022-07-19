@@ -25,28 +25,15 @@
     "categorySeq": "5"
   },
   {
-    "categoryName": "Product",
-    "categoryCode": "product",
-    "categorySeq": "6"
-  },
-  {
-    "categoryName": "Design",
-    "categoryCode": "design",
-    "categorySeq": "7"
+    "categoryName": "Product Design",
+    "categoryCode": "productDesign"
   },
   {
     "categoryName": "Typography",
-    "categoryCode": "typography",
-    "categorySeq": "8"
+    "categoryCode": "typography"
   },
   {
-    "categoryName": "Web",
-    "categoryCode": "web",
-    "categorySeq": "9"
-  },
-  {
-    "categoryName": "Design",
-    "categoryCode": "design",
-    "categorySeq": "10"
+    "categoryName": "Web Design",
+    "categoryCode": "webDesign"
   }
 ]

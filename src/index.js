@@ -10,6 +10,8 @@ import store from './store/store';
 import 'antd/dist/antd.min.css';
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
