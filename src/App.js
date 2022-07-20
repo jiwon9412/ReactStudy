@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Row, Col, Layout, Typography, Button, Form } from 'antd';
 import styled from 'styled-components';
-import { SearchOutlined, FilterOutlined } from '@ant-design/icons';
+import {
+  SearchOutlined,
+  FilterOutlined,
+  BgColorsOutlined,
+} from '@ant-design/icons';
 import Logo from './assets/temp/logo.svg';
 import menuList from './assets/temp/menu.json';
 import Dropdown from './components/atoms/Dropdown';
 import Carousel from './components/atoms/Carousel';
+import Search from './components/atoms/Search';
+import ColorInput from './components/atoms/ColorInput';
 
 import categories from './assets/temp/categories.json';
 
@@ -153,17 +159,31 @@ export default function App() {
               </Row>
               <Form form={form} layout="vertical">
                 <Row
-                  className={`filter-keywords ${isFilter ? 'active' : ''}`}
+                  className={`filter-keywords ${isFilter ? 'active-1' : ''}`}
                   gutter={[16, 16]}
                 >
                   <Col span={6}>
                     <Form.Item name="tags" label="Tags">
-                      {/* <Search size="large" /> */}
+                      <Search size="large" prefix={<SearchOutlined />} />
                     </Form.Item>
                   </Col>
-                  <Col span={6}>2</Col>
-                  <Col span={6}>3</Col>
-                  <Col span={6}>4</Col>
+                  <Col span={6}>
+                    <Form.Item name="color" label="Color">
+                      <ColorInput
+                        size="large"
+                        defaultValue="#000000"
+                        onFinish={(color) => {
+                          console.log(color);
+                        }}
+                      />
+                    </Form.Item>
+                  </Col>
+                  <Col span={6}>
+                    <Form.Item name="timeframe" label="Timeframe"></Form.Item>
+                  </Col>
+                  <Col span={6}>
+                    <Form.Item name="downloads" label="Downloads"></Form.Item>
+                  </Col>
                 </Row>
               </Form>
             </Col>
@@ -343,8 +363,17 @@ const DribbbleContent = styled(Content)`
       min-height: 72px;
     }
 
-    .active {
-      display: none;
+    .filter-keywords {
+      visibility: hidden;
+      height: 0px;
+      transition: all ease 0.3s;
+      opacity: 0;
+    }
+
+    .active-1 {
+      visibility: visible;
+      height: 86px;
+      opacity: 1;
     }
   }
 
