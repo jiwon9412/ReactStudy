@@ -13,9 +13,11 @@ import Dropdown from './components/atoms/Dropdown';
 import Carousel from './components/atoms/Carousel';
 import Search from './components/atoms/Search';
 import ColorInput from './components/atoms/ColorInput';
+import Card from './components/molcules/Card';
 
 import menuList from './assets/temp/menu.json';
 import categories from './assets/temp/categories.json';
+import cardList from './assets/temp/card.json';
 
 export default function App() {
   const [form] = Form.useForm();
@@ -196,7 +198,32 @@ export default function App() {
                 </Row>
               </Form>
             </Col>
-            <Col span={24}>카드영역</Col>
+            <Col span={24} className="wrap-inner">
+              <Row gutter={[32, 32]}>
+                {cardList?.map((item) => {
+                  return (
+                    <Col span={6}>
+                      <Card
+                        key={item?.key}
+                        alt={item?.name}
+                        thumbnail={item?.thumbnail}
+                        badgeText={item?.badgeText}
+                        title={item?.title}
+                        onLink={(key) => {
+                          console.log(key);
+                        }}
+                        onSave={(key) => {
+                          console.log(key);
+                        }}
+                        onLike={(key) => {
+                          console.log(key);
+                        }}
+                      />
+                    </Col>
+                  );
+                })}
+              </Row>
+            </Col>
           </Row>
         </DribbbleContent>
         <Footer>푸터</Footer>
