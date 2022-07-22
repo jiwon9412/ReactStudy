@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Row, Col, Layout, Typography, Button, Form } from 'antd';
+import { Row, Col, Layout, Button, Form } from 'antd';
 import styled from 'styled-components';
 import {
   SearchOutlined,
   FilterOutlined,
   BgColorsOutlined,
 } from '@ant-design/icons';
+
 import Logo from './assets/temp/logo.svg';
-import menuList from './assets/temp/menu.json';
 import Dropdown from './components/atoms/Dropdown';
 import Carousel from './components/atoms/Carousel';
 import Search from './components/atoms/Search';
 import ColorInput from './components/atoms/ColorInput';
 
+import menuList from './assets/temp/menu.json';
 import categories from './assets/temp/categories.json';
 
 export default function App() {
-  const [leftValue, setLeftValue] = useState('marketplace');
-  const [centerValue, setCenterValue] = useState('mobile');
-  const [isFilter, setIsFilter] = useState(false);
-
   const [form] = Form.useForm();
+
+  const [leftValue, setLeftValue] = useState('marketplace');
+  const [centerValue, setCenterValue] = useState(); // 자식값을 전달받은것.. 왜? 쿼리.. 데이터 조회
+  const [isFilter, setIsFilter] = useState(false);
 
   const handleFinish = (value) => {
     setLeftValue(value);
@@ -29,7 +30,6 @@ export default function App() {
 
   const handleCarouselFinish = (value) => {
     setCenterValue(value);
-    //console.log(centerValue);
   };
 
   const handleFilterClick = () => {
@@ -139,7 +139,6 @@ export default function App() {
                         value: 'categoryCode',
                       }}
                       onFinish={handleCarouselFinish}
-                      defaultValue={centerValue}
                     />
                   </CarouselWrap>
                 </Col>
@@ -179,30 +178,26 @@ export default function App() {
                     </Form.Item>
                   </Col>
                   <Col span={6}>
-                    <Form.Item name="timeframe" label="Timeframe"></Form.Item>
+                    <div class="ant-col ant-form-item-label">
+                      <label for="timeframe" className="" title="timeframe">
+                        Timeframe
+                      </label>
+                    </div>
+                    <Dropdown options={tempList1} width="100%" />
                   </Col>
                   <Col span={6}>
-                    <Form.Item name="downloads" label="Downloads"></Form.Item>
+                    <div class="ant-col ant-form-item-label">
+                      <label for="Downloads" className="" title="Downloads">
+                        Downloads
+                      </label>
+                    </div>
+                    <Dropdown options={tempList2} width="100%" />
                   </Col>
                 </Row>
               </Form>
             </Col>
-            {/* <Col span={24}>카드영역</Col> */}
-          </Row>
-          {/* <Row className="middle">
-            <Col span={24} className="filter-content">
-              <Row className="filter-row">
-                <Col flex="120px">
-                  <Dropdown options={tempList} />
-                </Col>
-                <Col flex="auto">
-                  <Dropdown options={tempList1} />
-                </Col>
-                <Col flex="120px">오른쪽</Col>
-              </Row>
-            </Col>
             <Col span={24}>카드영역</Col>
-          </Row> */}
+          </Row>
         </DribbbleContent>
         <Footer>푸터</Footer>
       </DribbleLayout>
@@ -230,16 +225,55 @@ const tempList = [
 
 const tempList1 = [
   {
-    label: 'aa',
-    value: 'aa',
+    label: 'Now',
+    value: 'Now',
   },
   {
-    label: 'bb',
-    value: 'bb',
+    label: 'This Past Week',
+    value: 'This Past Week',
   },
   {
-    label: 'cc',
-    value: 'cc',
+    label: 'This Past Month',
+    value: 'This Past Month',
+  },
+  {
+    label: 'This Past Year',
+    value: 'This Past Year',
+  },
+  {
+    label: 'All Time',
+    value: 'All Time',
+  },
+];
+
+const tempList2 = [
+  {
+    label: 'All Shots',
+    value: 'All Shots',
+  },
+  {
+    label: 'Adobe Illustrator',
+    value: 'Adobe Illustrator',
+  },
+  {
+    label: 'Adobe Photoshop',
+    value: 'Adobe Photoshop',
+  },
+  {
+    label: 'Adobe XD',
+    value: 'Adobe XD',
+  },
+  {
+    label: 'Figma',
+    value: 'Figma',
+  },
+  {
+    label: 'Invision Studio',
+    value: 'Invision Studio',
+  },
+  {
+    label: 'Sketch',
+    value: 'Sketchv',
   },
 ];
 
@@ -376,16 +410,6 @@ const DribbbleContent = styled(Content)`
       opacity: 1;
     }
   }
-
-  // .middle {
-  //   background: #fff;
-  //   .filter-content {
-  //     min-height: 72px;
-  //     .filter-row {
-  //       height: 100%;
-  //     }
-  //   }
-  // }
 
   .btnAction {
     padding: 10px 16px;

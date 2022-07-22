@@ -5,14 +5,14 @@ import Slider from 'react-slick';
 export default function Carousel({
   data = [],
   keyOption,
-  onFinish,
   defaultValue,
+  onFinish,
 }) {
   const [selectedItem, setSelectedItem] = useState();
 
   let settings = {
-    dots: false, //슬라이드에서 아래 점 사용여부
-    infinite: false, // 슬라이드가 계속넘어갈지 여부
+    dots: false,
+    infinite: false,
     speed: 500,
     slidesToShow: 10,
     slidesToScroll: 1,
@@ -31,6 +31,7 @@ export default function Carousel({
         [keyOption?.value]: defaultValue,
       });
   }, []);
+
   return (
     <DribbbleCarousel {...settings}>
       {data.map((item) => {
