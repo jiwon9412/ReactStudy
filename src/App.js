@@ -14,10 +14,12 @@ import Carousel from './components/atoms/Carousel';
 import Search from './components/atoms/Search';
 import ColorInput from './components/atoms/ColorInput';
 import Card from './components/molcules/Card';
+import ColumnList from './components/atoms/ColumnList';
 
 import menuList from './assets/temp/menu.json';
 import categories from './assets/temp/categories.json';
 import cardList from './assets/temp/card.json';
+import siteMap from './assets/temp/siteMap.json';
 
 export default function App() {
   const [form] = Form.useForm();
@@ -225,6 +227,34 @@ export default function App() {
               </Row>
             </Col>
           </Row>
+          <Col span={24} className="site-map">
+            <Row>
+              <Col flex={`256px`}>왼쪽</Col>
+              <Col flex={`auto`}>
+                <Row>
+                  {siteMap.map((area) => {
+                    return (
+                      <Col flex="20%">
+                        {area.siteMapArea.map((item) => {
+                          //console.log(item.areaName);
+                          //console.log(item.children);
+                          return (
+                            <div className="links-column">
+                              <ColumnList
+                                areaname={item.areaName}
+                                children={item.children}
+                              />
+                            </div>
+                          );
+                        })}
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </Col>
+              <Col flex={`256px`}>오른쪽</Col>
+            </Row>
+          </Col>
         </DribbbleContent>
         <Footer>푸터</Footer>
       </DribbleLayout>
@@ -444,6 +474,9 @@ const DribbbleContent = styled(Content)`
     background: #ea4c89;
     color: #fff;
     font-weight: 500;
+  }
+
+  .site-map {
   }
 `;
 
