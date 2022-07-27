@@ -477,6 +477,10 @@ const DribbbleContent = styled(Content)`
   }
 
   .site-map {
+    .links-column {
+      margin-top: 40px;
+      margin-left: 40px;
+    }
   }
 `;
 
